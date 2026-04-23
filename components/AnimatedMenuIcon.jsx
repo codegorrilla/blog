@@ -123,7 +123,7 @@ const AnimatedMenuIcon = () => {
   ];
 
   return (
-    <div className="relative p-8">
+    <div className="relative p-8 px-0">
       <button
         className="cursor-pointer p-4 w-fit relative z-50 focus:outline-none"
         onMouseEnter={handleMouseEnter}
@@ -174,7 +174,7 @@ const AnimatedMenuIcon = () => {
       {/* Dropdown Menu */}
       <div
         ref={menuRef}
-        className="invisible opacity-0 absolute top-24 right-10 w-64  bg-brand-blue border-white dark:bg-brand-orange dark:border-brand-orange rounded-2xl shadow-2xl border overflow-hidden z-40"
+        className="invisible opacity-0 absolute top-24 right-5 w-64  bg-brand-blue border-white dark:bg-brand-orange dark:border-brand-orange rounded-2xl shadow-2xl border overflow-hidden z-40"
       >
         <ul className="flex flex-col p-2">
           {menuItems.map((item, i) => {
