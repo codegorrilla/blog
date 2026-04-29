@@ -15,9 +15,3 @@
   --color-brand-orange: #f0493a;
   --color-brand-yellow: #ffbf00;
 }
-
-/* to maintain image aspect ratio */
-img {
-  width: auto;
-  height: auto;
-}
