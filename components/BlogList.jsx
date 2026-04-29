@@ -15,6 +15,8 @@ const BlogList = ({ menu }) => {
               title={item.title}
               description={item.description}
               category={item.category}
+              date={item.date}
+              author={item.author}
             />
           );
         })}
