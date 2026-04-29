@@ -4,6 +4,7 @@ import art_pic_1 from "./article-thumb-1.png";
 import art_pic_2 from "./article-thumb-2.png";
 import art_pic_3 from "./article-thumb-3.png";
 import art_hero_1 from "./article-hero-1.jpg";
+import authorImg from "./author-profile-thumb.png";
 
 export const assets = {
   fbShareIcon,
@@ -19,6 +20,8 @@ export const blogData = [
     date: pubDate("23/04/2026"),
     category: "React",
     author: "code.gorrilla",
+    authorImg,
+    authorId: 1,
   },
   {
     id: 2,
@@ -30,6 +33,8 @@ export const blogData = [
     date: pubDate("25/04/2026"),
     category: "CSS",
     author: "sanjib",
+    authorImg,
+    authorId: 2,
   },
   {
     id: 3,
@@ -41,6 +46,8 @@ export const blogData = [
     date: pubDate("29/04/2026"),
     category: "Node",
     author: "code.gorrilla",
+    authorImg,
+    authorId: 3,
   },
   {
     id: 4,
@@ -51,6 +58,8 @@ export const blogData = [
     date: pubDate("24/04/2026"),
     category: "Expressjs",
     author: "code.gorrilla",
+    authorImg,
+    authorId: 4,
   },
   {
     id: 5,
@@ -61,5 +70,7 @@ export const blogData = [
     date: pubDate("28/04/2026"),
     category: "React",
     author: "code.gorrilla",
+    authorImg,
+    authorId: 5,
   },
 ];

@@ -7,11 +7,6 @@ const Sidebar = ({ menu, setMenu, getCategoryCount }) => {
   return (
     <menu className="flex lg:flex-col gap-4">
       <ul>
-        <li className="mb-2">
-          <Link href="/" className={menuItemStyles}>
-            Getting started
-          </Link>
-        </li>
         <li>
           Articles
           <ul className="mt-1 lg:pl-2">
