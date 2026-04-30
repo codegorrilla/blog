@@ -82,7 +82,10 @@ const page = async ({ params }) => {
             <Image
               src={blog.imageHero}
               alt={blog.title}
-              className="w-full max-w-300 h-auto my-8 rounded"
+              width={1200}
+              height={600}
+              className="w-full max-w-300 my-8 rounded"
+              style={{ height: "auto" }}
               loading="eager"
             />
 

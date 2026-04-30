@@ -10,17 +10,17 @@ const HeroText = () => {
       setDaytime("morning");
     } else if (hour >= 12 && hour < 18) {
       setDaytime("afternoon");
-    } else {
+    } else if (hour >= 18 && hour <= 23) {
       setDaytime("evening");
+    } else {
+      setDaytime("morning");
     }
   }, []);
 
   return (
     <h1 className="font-accent text-[2rem] leading-tight text-brand-yellow">
       <span className="text-brand-blue">
-        <strong className="capitalize text-brand-orange">
-          {daytime}!
-        </strong>{" "}
+        <strong className="capitalize text-brand-orange">{daytime}!</strong>{" "}
         welcome to my journal,
       </span>{" "}
       here I document everything that I learn regarding web development, so that
