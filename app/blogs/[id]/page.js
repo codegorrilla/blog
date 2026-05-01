@@ -7,7 +7,7 @@ import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
 
-const page = async ({ params }) => {
+const Page = async ({ params }) => {
   const { id } = await params;
   const blog = blogData.find((item) => item.id === parseInt(id));
 
@@ -100,4 +100,4 @@ const page = async ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

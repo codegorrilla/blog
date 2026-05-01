@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import BackButton from "@/components/BackButton";
 
-const page = async ({ params }) => {
+const Page = async ({ params }) => {
   const { authorId } = await params;
   const author = blogData.find((item) => item.authorId === parseInt(authorId));
   return (
@@ -31,4 +31,4 @@ const page = async ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

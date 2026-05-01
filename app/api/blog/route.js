@@ -9,12 +9,15 @@ const LoadDb = async () => {
 
 LoadDb();
 
-export async function GET(request) {
+// API endpoint for fetching blogs
+export async function GET() {
   console.log("Blog GET hit");
 
-  return NextResponse.json({ message: "API is working" });
+  const allBlogs = await cgBlogModel.find({});
+  return NextResponse.json({ success: true, message: allBlogs });
 }
 
+// API endpoint for uploading blogs
 export async function POST(request) {
   console.log("Blog POST hit");
 
@@ -24,10 +27,10 @@ export async function POST(request) {
   const image = formData.get("image");
   const imageByteData = await image.arrayBuffer();
   const imageBuffer = Buffer.from(imageByteData);
-  const path = `./public/${timeStamp}_${image.name}`;
+  const path = `./public/uploads/${timeStamp}_${image.name}`;
 
   await writeFile(path, imageBuffer);
-  const imgUrl = `/${timeStamp}_${image.name}`;
+  const imgUrl = `/uploads/${timeStamp}_${image.name}`;
   //console.log(imgUrl);
 
   const blogData = {
@@ -43,5 +46,8 @@ export async function POST(request) {
   await cgBlogModel.create(blogData);
   console.log("Blog Saved");
 
-  return NextResponse.json({ success: true, message: blogData });
+  return NextResponse.json({
+    success: true,
+    message: "Blog posted successfully!",
+  });
 }
