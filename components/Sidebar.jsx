@@ -51,14 +51,14 @@ const Sidebar = ({ menu, setMenu, getCategoryCount }) => {
             </li>
             <li className="mb-2">
               <button
-                onClick={() => setMenu("Expressjs")}
-                className={`${menuItemStyles} ${menu === "Expressjs" ? " text-brand-orange" : ""}`}
+                onClick={() => setMenu("Express")}
+                className={`${menuItemStyles} ${menu === "Express" ? " text-brand-orange" : ""}`}
               >
-                Express.js{" "}
+                Express{" "}
                 <span
-                  className={`${menu === "Expressjs" ? " text-brand-orange" : "text-gray-500"}`}
+                  className={`${menu === "Express" ? " text-brand-orange" : "text-gray-500"}`}
                 >
-                  ({getCategoryCount("Expressjs")})
+                  ({getCategoryCount("Express")})
                 </span>
               </button>
             </li>

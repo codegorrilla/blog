@@ -2,14 +2,24 @@ import React from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Subscription from "@/components/Subscription";
-import { blogData } from "@/assets/assets";
 import BackButton from "@/components/BackButton";
+import { pubDate } from "@/utility/publishDate";
 import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
+import connectDB from "@/lib/config/db";
+import { cgBlogModel } from "@/lib/models/BlogModel";
 
 const Page = async ({ params }) => {
   const { id } = await params;
-  const blog = blogData.find((item) => item.id === parseInt(id));
+
+  // Connect to the database and fetch the specific blog by ID
+  const LoadDb = async () => {
+    await connectDB();
+  };
+
+  LoadDb();
+
+  const blog = await cgBlogModel.findById(id);
 
   //if there is no blog post
   if (!blog) {
@@ -65,7 +75,7 @@ const Page = async ({ params }) => {
               </div>
 
               <div className="flex justify-start items-center gap-3 font-main font-black text-sm text-left">
-                <span className="text-black">{blog.date}</span>
+                <span className="text-black">{pubDate(blog.createdAt)}</span>
                 <Link
                   href={`/author/${blog.authorId}`}
                   className="flex justify-around items-center gap-2"
@@ -74,13 +84,15 @@ const Page = async ({ params }) => {
                   <Image
                     src={blog.authorImg}
                     alt={blog.author}
+                    width={50}
+                    height={50}
                     className="rounded-full w-[50px] h-[50px] bg-gray-400"
                   />
                 </Link>
               </div>
             </div>
             <Image
-              src={blog.imageHero}
+              src={blog.image}
               alt={blog.title}
               width={1200}
               height={600}

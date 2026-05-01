@@ -138,7 +138,7 @@ const Page = () => {
           <option value="React">React</option>
           <option value="Node">Node</option>
           <option value="Express">Express</option>
-          <option value="MongoDB">MongoDB</option>
+          <option value="CSS">CSS</option>
         </select>
         <br />
         <button

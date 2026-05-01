@@ -10,11 +10,19 @@ const LoadDb = async () => {
 LoadDb();
 
 // API endpoint for fetching blogs
-export async function GET() {
+export async function GET(request) {
   console.log("Blog GET hit");
 
-  const allBlogs = await cgBlogModel.find({});
-  return NextResponse.json({ success: true, message: allBlogs });
+  const blogId = request.nextUrl.searchParams.get("id");
+  console.log("This is the blog ID : " + blogId);
+
+  if (blogId) {
+    const specificBlog = await cgBlogModel.findById(blogId);
+    return NextResponse.json({ success: true, message: specificBlog });
+  } else {
+    const allBlogs = await cgBlogModel.find({});
+    return NextResponse.json({ success: true, message: allBlogs });
+  }
 }
 
 // API endpoint for uploading blogs

@@ -1,27 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import BlogItem from "./BlogItem";
 import { pubDate } from "@/utility/publishDate";
 // import { blogData } from "@/assets/assets";
 
-const BlogList = ({ menu }) => {
-  const [blogs, setBlogs] = useState([]);
-
-  const fetchBlogs = async () => {
-    const response = await axios.get("/api/blog");
-    const data = response.data;
-
-    if (data.success) {
-      setBlogs(data.message);
-
-      console.log(data);
-    }
-  };
-
-  useEffect(() => {
-    fetchBlogs();
-  }, []);
+const BlogList = ({ menu, blogs }) => {
 
   return (
     <div className="flex flex-wrap justify-start gap-5 gap-y-10 mt-15 md:mt-24 mb-16">
